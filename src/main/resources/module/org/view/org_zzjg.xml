@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="org_zzjg" title="组织机构" onReady="ready">
+	<bag name="data">
+		<item name="nodes" type="json" bind="nodes"/>
+		<item name="toolBtns" type="json" bind="toolBtns"/>
+		<item name="data" type="json"	bind="data"/>
+	</bag>
+ 	<button name="saveBtn" label="保存"  type="button" context="primary" onClick="saveBtnClick"></button>
+	<mega name="zzjgmega" height="600">
+	</mega>
+	
+	<attribute name="javascript">
+	<![CDATA[
+		function ready() {
+			ui.mega("zzjgmega").setNodes(ui.bag("data").get("nodes"));
+			ui.mega("zzjgmega").setToolBtns(ui.bag("data").get("toolBtns"));
+			ui.mega("zzjgmega").loadData(ui.bag("data").get("data"));
+		}
+		function onEventClick(event){
+			ui.calendar("calendar-demo").deleteEvent(event);
+		}
+		function onEventClickAjax(event){
+			ui.calendar("calendar-demo-ajax").deleteEvent(event);
+		}
+		function saveBtnClick() {
+			$.ajax({
+		             type: "POST",
+		             url:  ui.getRealUrl("/zzjg/saveZzjg"),
+		             async: false,
+		             data: {e_data:  JSON.stringify(ui.mega("zzjgmega").exportData())},
+		             success: function(data){
+		             	ui.success(data);
+		             }
+		         });
+		}
+	]]>
+	</attribute>
+</view>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 部门信息表 -->
+<model version="1.0.2" name="org_bmxxb">
+	<fields>
+		<bmid type="pk" pk="true" comment="部门ID" label="部门ID"/>
+		<bmmc type="string" required="true" maxlength="50" comment="部门名称" label="部门名称"/>
+		<bmms type="string" required="false" maxlength="200" comment="部门描述" label="部门描述"/>
+		<txbjqjdmc type="string" required="true" maxlength="50" comment="节点标识" label="节点标识"/>
+	</fields>
+</model>

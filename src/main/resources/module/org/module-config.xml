@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="org" version="1.0.0" category="system">
+	<information>
+		<name>System Organization Management</name>
+		<vendor>
+			<name>Isesol isMES</name>
+			<url>http://www.isesol.com/</url>
+		</vendor>
+		<description>User is a module which adds organization functionality to system.</description>
+		<license>AGPL</license>
+	</information>
+	<activities>
+		<activity name="zzjg" dialect="java" roles="SYSTEM_MANAGEMENT_ROLE" class="com.isesol.mes.ismes.org.activity.ZzjgActivity"/>
+		<activity name="service" dialect="java" class="com.isesol.mes.ismes.org.service.OrgService"/>
+	</activities>
+	<roles>
+		<role name="SYSTEM_MANAGEMENT_ROLE" label="系统管理人员_组织机构" description="系统基础信息设置" />
+	</roles>
+	<menus>
+		<!-- 系统管理（一级） -->
+		<category name="sysmanage" label="系统管理" icon="#fb5070;system_maintenance" weight="6"/>
+		<menu name="zzjg_account" label="组织机构" activity="zzjg" activity-method="index" category="sysmanage"
+			 roles="SYSTEM_MANAGEMENT_ROLE" description="组织机构" icon="button" weight="30"/>
+	</menus>
+	<resources>
+		<resource name="org_gcxxb" fileName="org_gcxxb.png" shared="true" type="image" uri="/module/org/resource/images/node/org_gcxxb.png"/>
+		<resource name="org_jtxxb" fileName="org_jtxxb.png" shared="true" type="image" uri="/module/org/resource/images/node/org_jtxxb.png"/>
+		<resource name="org_bmxxb" fileName="org_bmxxb.png" shared="true" type="image" uri="/module/org/resource/images/node/org_bmxxb.png"/>
+		<resource name="org_cjxx" fileName="org_cjxx.png" shared="true" type="image" uri="/module/org/resource/images/node/org_cjxx.png"/>
+	</resources>
+	<services>
+		<service name = "orgService" activity = "service" activity-method = "initOrgData"/>
+		<service name = "cjService" activity = "service" activity-method = "listCj"/>
+		<service name = "cjServiceByZzjgList" activity = "service" activity-method = "listCjByzzjglist"/>
+		<service name = "cjQueryService" activity = "service" activity-method = "listCjQuery"/>
+		<service name = "nameService" activity = "service" activity-method = "getOrgNameById"/>
+	</services>
+</module>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 工种信息表 -->
+<model version="1.0.0" name="org_gzxxb">
+	<fields>
+		<gzid type="pk" pk="true" comment="工种ID" label="工种ID"/>
+		<gzbh type="string" required="true" maxlength="20" comment="工种编号" label="工种编号"/>
+		<gzmc type="string" required="false" maxlength="50" comment="工种名称" label="工种名称"/>
+		<pjfl type="decimal" required="false" length="6" precision="2" comment="平均费率" label="平均费率"/>
+		<qybsdm type="dict" required="false" comment="启用标识代码" label="启用标识代码"/>
+	</fields>
+</model>
